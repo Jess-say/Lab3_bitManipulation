@@ -44,8 +44,11 @@ int main(void) {
 		else if (A >= 0x0A && A <= 0x0C) {
 		       C = 0x3E; // 0011 1110
 		}
-		else {
+		else if (A >= 0x0D && A <= 0x0F) {
 			C = 0x3F; // 0011 1111
+		}
+		else {
+			C = 0x40; // fuel level is 0
 		}
 
 		PORTC = C;
