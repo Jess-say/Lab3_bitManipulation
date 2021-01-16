@@ -24,7 +24,7 @@ tests = [ {'description': 'PINA: 0x03 => PORTC: 0x70',
     'expected': [('PORTC',0x3E)],
     },
 
-    {'description': 'PINA: 0x0F => PORTC: 0x3F',
+    {'description': 'PINA: 0x0F => PORTC: 0x3F', 
     'steps': [ {'inputs': [('PINA', 0x0F)],'iterations': 5 } ],
     'expected': [('PORTC',0x3F)],
     }, 

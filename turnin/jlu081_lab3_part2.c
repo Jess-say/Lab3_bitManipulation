@@ -20,7 +20,7 @@ int main(void) {
 	unsigned char C = 0x00;
     	while (1) {
 		
-		A = PINA & 0xFF; 
+		A = PINA & 0x0F; 
 	 	C = 0x00;
 
 		// PA3-PA0 holds values from 0-15
