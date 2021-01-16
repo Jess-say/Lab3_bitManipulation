@@ -19,7 +19,6 @@ int main(void) {
 	unsigned char A = 0x00;
 	unsigned char C = 0x00;
     	while (1) {
-		
 		A = PINA & 0xF0; 
 	 	C = 0x00;
 
