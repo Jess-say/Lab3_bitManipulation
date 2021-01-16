@@ -2,7 +2,7 @@
  *  Partner(s) Name: 
  *	Lab Section: 23
  *	Assignment: Lab #3  Exercise #2
- *	Exercise Description: Outputs Indicates low fuel level depending on values PA3-PA0
+ *	Exercise Description: Outputs Indicates low fuel level depending on values PA3-PA0.
  *
  *	I acknowledge all content contained herein, excluding template or example
  *	code, is my own original work.
