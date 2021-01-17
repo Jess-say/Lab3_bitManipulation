@@ -29,16 +29,16 @@ int main(void) {
 		B1 = 0x00;
 
 		if (B == 0x00) {	      
-			if (D > 0x46) { 
+			if (D >= 0x46) { 
 				tmp = D;
 				B1 = 0x02;
 			}	
 			else { 
-				tmp = (D << 1) | 0x01; 
+				tmp = (D << 1) | 0x00; 
 			}
 		}
 		else  { 
-			if (tmp > 0x46) { 
+			if (tmp >= 0x46) { 
 				tmp = D; 
 				B1 = 0x02;
 			}
