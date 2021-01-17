@@ -19,7 +19,6 @@ int main(void) {
 	unsigned char D = 0x00;
 	unsigned char B = 0x00;
 	unsigned char B1 = 0x00;
-	unsigned char B2 = 0x00;
 	unsigned char tmp = 0x00;
 
     	while (1) {
@@ -33,7 +32,7 @@ int main(void) {
 				tmp = D;
 			}	
 			else { 
-				tmp = (D << 1); 
+				tmp = (D << 1) | 0x01; 
 			}
 		}
 		else  { 
@@ -41,7 +40,7 @@ int main(void) {
 				tmp = D; 
 			}
 			else {
-				tmp = (D << 1) | B; 
+				tmp = (D << 1) | 0x01; 
 			}
 		}
 
@@ -50,23 +49,19 @@ int main(void) {
 		if (tmp >= 0x05) {
 			if (tmp >= 0x46) {
 				B1 = 0x02;
-				B2 = 0x00;
 			}
 
 			// if 5 < weight < 70 then PB2 is 1
-			if (tmp > 0x05 && tmp < 0x46) {
-				B2 = 0x04;
-				B1 = 0x00;
+			else {
+				B1 = 0x04;
 			}
 
 		}
 		else {
 			B1 = 0x00;
-			B2 = 0x00;
 		}
-		
 
-		PORTB = B2 | B1;
+		PORTB = B1;
     	}
     	return 0;
 }
