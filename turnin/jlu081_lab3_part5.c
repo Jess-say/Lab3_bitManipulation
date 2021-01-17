@@ -16,42 +16,54 @@ int main(void) {
 	DDRD = 0x00; PORTD = 0xFF;
 	DDRB = 0xFF; PORTB = 0x00;
 
-	unsigned char D = 0x00;
-	unsigned char B = 0x00;
+	//unsigned char D = 0x00;
+	//unsigned char B = 0x00;
 	unsigned char B1 = 0x00;
 	unsigned char tmp = 0x00;
 
     	while (1) {
 		
-		B = PINB & 0xFF;
-		D = PIND & 0xFF;
+		//B = PINB & 0xFF;
+		//D = PIND & 0xFF;
 		tmp = 0x00;
 		B1 = 0x00;
 
-		if (B == 0x00) {	      
-			if (D >= 0x46) { 
-				tmp = D;
+		if (PINB == 0x00) {	      
+			if (PIND >= 0x46) { 
+				tmp = PIND;
 				B1 = 0x02;
 			}	
 			else { 
-				tmp = (D << 1) | 0x00; 
+				tmp = (PIND << 1) | 0x00;
+			       	if (tmp > 0x05 && tmp < 0x46) {
+					B1 = 0x04;
+				}
+				else { 
+					B1 = 0x00;
+				}	
 			}
 		}
 		else  { 
-			if (tmp >= 0x46) { 
-				tmp = D; 
+			if (PIND >= 0x46) { 
+				tmp = PIND; 
 				B1 = 0x02;
 			}
 			else {
-				tmp = (D << 1) | 0x01; 
+				tmp = (PIND << 1) | 0x01; 
+				if (tmp > 0x05 && tmp < 0x46) {
+					B1 = 0x04;
+				}
+				else {
+					B1 = 0x00;
+				}
 			}
 		}
 
 		// if weight > 70 then PB1 is 1
 		// if weight < 5 B1 and B2 should be set
-		if (tmp > 0x05 && tmp < 0x46) {
+		/*if (tmp > 0x05 && tmp < 0x46) {
 			B1 = 0x04;
-		}
+		}*/
 
 		PORTB = B1;
     	}
