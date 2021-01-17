@@ -46,7 +46,7 @@ int main(void) {
 
 		// if weight > 70 then PB1 is 1
 		// if weight < 5 B1 and B2 should be set
-		if (tmp >= 0x05) {
+		if (tmp > 0x05) {
 			if (tmp >= 0x46) {
 				B1 = 0x02;
 			}
