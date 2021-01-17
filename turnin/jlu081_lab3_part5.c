@@ -26,10 +26,12 @@ int main(void) {
 		B = PINB & 0xFF;
 		D = PIND & 0xFF;
 		tmp = 0x00;
+		B1 = 0x00;
 
 		if (B == 0x00) {	      
 			if (D > 0x46) { 
 				tmp = D;
+				B1 = 0x02;
 			}	
 			else { 
 				tmp = (D << 1) | 0x01; 
@@ -38,6 +40,7 @@ int main(void) {
 		else  { 
 			if (tmp > 0x46) { 
 				tmp = D; 
+				B1 = 0x02;
 			}
 			else {
 				tmp = (D << 1) | 0x01; 
@@ -46,19 +49,8 @@ int main(void) {
 
 		// if weight > 70 then PB1 is 1
 		// if weight < 5 B1 and B2 should be set
-		if (tmp > 0x05) {
-			if (tmp >= 0x46) {
-				B1 = 0x02;
-			}
-
-			// if 5 < weight < 70 then PB2 is 1
-			else {
-				B1 = 0x04;
-			}
-
-		}
-		else {
-			B1 = 0x00;
+		if (tmp > 0x05 && tmp < 0x46) {
+			B1 = 0x04;
 		}
 
 		PORTB = B1;
